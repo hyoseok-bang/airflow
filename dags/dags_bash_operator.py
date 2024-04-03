@@ -25,4 +25,4 @@ with DAG(
         bash_command="echo $HOSTNAME"  # 태스크가 실행되는 
     )
     
-    bash_t1 >> bash_t2
+    bash_t1 >> bash_t2 
