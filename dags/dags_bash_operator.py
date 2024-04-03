@@ -21,7 +21,7 @@ with DAG(
     )
     
     bash_t2 = BashOperator(
-        task_i="bash_t2",
+        task_id="bash_t2",
         bash_command="echo $HOSTNAME"  # 태스크가 실행되는 
     )
     
