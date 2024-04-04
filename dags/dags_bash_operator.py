@@ -3,7 +3,7 @@ import pendulum
 # from airflow import DAG
 from airflow.models.dag import DAG
 from airflow.operators.bash import BashOperator
-from airflow.operators.empty import EmptyOperator
+
 
 with DAG(
     dag_id="dags_bash_operator",  # 에어플로우 대시보드 상에서 보여지는 dag 이름; python 파일명과는 상관없지만, 일치시키는게 관리하기에 좋음
@@ -16,7 +16,7 @@ with DAG(
 ) as dag:
     # [START howto_operator_bash]
     bash_t1 = BashOperator(
-        task_id="run_after_loop",  # dag 그래프 상에 보여지는 태스크명
+        task_id="bash_t1",  # dag 그래프 상에 보여지는 태스크명
         bash_command="echo bashoperator",  # 실행할 쉘스크립트 명령어
     )
     
