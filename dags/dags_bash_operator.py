@@ -16,7 +16,7 @@ with DAG(
 ) as dag:
     # [START howto_operator_bash]
     bash_t1 = BashOperator(
-        task_id="bash_t1",  # dag 그래프 상에 보여지는 태스크명
+        task_id="bash_t1",  # dag 그래프 상에 보여지는 태스크명; 오퍼레이터 명과 같아야 함?
         bash_command="echo bashoperator",  # 실행할 쉘스크립트 명령어
     )
     
