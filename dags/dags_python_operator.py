@@ -5,8 +5,6 @@ from airflow.models.dag import DAG
 from airflow.operators.python import PythonOperator
 import random
 
-from torch import rand
-
 
 with DAG(
     dag_id="dags_python_operator",  # 에어플로우 대시보드 상에서 보여지는 dag 이름; python 파일명과는 상관없지만, 일치시키는게 관리하기에 좋음
