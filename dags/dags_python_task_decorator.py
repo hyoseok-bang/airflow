@@ -13,4 +13,4 @@ with DAG(
     def print_context(some_input):
         print(some_input)
 
-python_task1 = print_context("Python Task Decorator 실행")  # task_id와 task object명도 되도록 일치시키는게 좋음
+    python_task1 = print_context("Python Task Decorator 실행")  # task_id와 task object명도 되도록 일치시키는게 좋음
