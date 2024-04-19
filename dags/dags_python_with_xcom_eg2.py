@@ -3,7 +3,7 @@ import pendulum
 from airflow.decorators import task
 
 with DAG(
-    dag_id="dags_python_with_xcom_eg1",
+    dag_id="dags_python_with_xcom_eg2",
     schedule="30 6 * * *",
     start_date=pendulum.datetime(2024, 3, 1, tz="Asia/Seoul"),
     catchup=False,
@@ -32,4 +32,7 @@ with DAG(
         xcom_push_by_return()
     )  # xcom_push_return_value는 단순히 str값을 저장한 변수가 아니라 airflow task 객체
     xcom_push_return_value >> xcom_pull_1()
-    xcom_pull_2(xcom_push_by_return())  # 리턴값을 갖는 태스크 객체를 입력으로 전달
+    xcom_pull_2(
+        xcom_push_return_value
+    )  # 태스크 객체를 인풋으로 넣어주면 알아서 실행 순서를 지정해줌; xcom_push_by_return >> xcom_pull_2
+    # xcom_pull_2(xcom_push_by_return())  # 이렇게 하면 push 함수를 이용해 새로운 태스크 생성하는것과 같음
