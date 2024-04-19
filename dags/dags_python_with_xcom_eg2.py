@@ -19,7 +19,7 @@ with DAG(
     def xcom_pull_1(**kwargs):
         ti = kwargs["ti"]
         value1 = ti.xcom_pull(
-            task_id="python_xcom_push_by_return"
+            task_ids="python_xcom_push_by_return"
         )  # task_ids값 넣으면 알아서 리턴값 받아줌
         print("xcom_pull 메서드로 직접 찾은 리턴 값:", value1)
 
