@@ -10,14 +10,16 @@ with DAG(
     catchup=False,
 ) as dag:
 
+    # From Python to Bash
     @task(task_id="python_push")
     def python_push_xcom():
         result_dict = {"status": "Good", "data": [1, 2, 3], "options_cnt": 100}
-        return result_dict
+        return result_dict  # return_value: {"status": "Good", "data": [1, 2, 3], "options_cnt": 100}
 
     bash_pull = BashOperator(
         task_id="bash_pull",
         env={
+            # task instance가 이전 task의 xcom value들을 가지고 있음
             "STATUS": "{{ ti.xcom_pull(task_ids='python_push')['status'] }}",  # Good
             "DATA": "{{ ti.xcom_pull(task_ids='python_push')['data'] }}",  # [1,2,3]
             "OPTIONS_CNT": "{{ ti.xcom_pull(task_ids='python_push')['options_cnt'] }}",  # 100
