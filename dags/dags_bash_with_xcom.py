@@ -29,3 +29,5 @@ with DAG(
         bash_command="echo $PUSHED_VALUE && echo $RETURN_VALUE",
         do_xcom_push=False,  # If True(default), register return value of the task as the value of return_value key of task instance
     )
+
+    bash_push >> bash_pull
