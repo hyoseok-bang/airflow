@@ -13,7 +13,7 @@ with DAG(
     bash_var_1 = BashOperator(
         task_id="bash_var_1", bash_command=f"echo variable:{var_value}"
     )
-    
+
     # 2. Jinja template을 이용한 전역변수 호출
     bash_var_2 = BashOperator(
         task_id="bash_var_2", bash_command="echo varialbe:{{var.value.sample_key}}"
