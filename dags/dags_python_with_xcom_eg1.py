@@ -17,6 +17,7 @@ with DAG(
 
     @task(task_id="python_xcom_push_task2")
     def xcom_push2(**kwargs):
+        print(kwargs)
         ti = kwargs["ti"]
         ti.xcom_push(key="result1", value="value_2")
         ti.xcom_push(key="result2", value=[1, 2, 3])
